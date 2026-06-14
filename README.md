@@ -160,6 +160,21 @@ Generate machine-readable reports:
   ]
 }
 ```
+## 🐳 Docker Security Audit
+
+Run:
+
+```bash
+./scripts/docker_security_check.sh
+```
+
+Checks:
+
+- Docker installation status
+- Running containers
+- Privileged containers
+- Containers running as root
+- Host networking usage
 
 ---
 
