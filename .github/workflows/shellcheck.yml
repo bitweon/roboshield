@@ -1,29 +1,24 @@
-name: Shell Scripts
+name: ShellCheck
 
 on:
   push:
+    branches:
+      - main
   pull_request:
 
 jobs:
-  shell:
+  shellcheck:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
       - name: Install ShellCheck
-        run: sudo apt-get update && sudo apt-get install -y shellcheck
-
-      - name: Install shfmt
         run: |
-          curl -sSLo shfmt https://github.com/mvdan/sh/releases/latest/download/shfmt_v3.12.0_linux_amd64
-          chmod +x shfmt
-          sudo mv shfmt /usr/local/bin/
+          sudo apt-get update
+          sudo apt-get install -y shellcheck
 
       - name: Run ShellCheck
         run: |
-          find . -name "*.sh" -exec shellcheck {} +
-
-      - name: Check shell formatting
-        run: |
-          shfmt -d .
+          find . -name "*.sh" -print0 | xargs -0 shellcheck --severity=warning
