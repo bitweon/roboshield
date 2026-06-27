@@ -20,25 +20,26 @@ Protecting robots from cyber threats, unsafe configurations, and unauthorized ac
 
 # 🚀 Overview
 
-Modern robots run on Linux, ROS, ROS2, Docker, edge computing devices, and industrial networks.
+> **RoboShield** is a security auditing toolkit for robots running
+> **Linux • ROS • ROS2 • Docker • Edge Devices • Industrial Networks**
 
-Unfortunately, many robotic systems are deployed with:
+---
 
-❌ Weak SSH settings
+## 🚨 Common Security Issues
 
-❌ Exposed ROS topics
+| ❌ Insecure Configuration | ✅ RoboShield Checks |
+|:--------------------------|:---------------------|
+| Weak SSH settings | ✔ SSH hardening audit |
+| Exposed ROS topics | ✔ ROS/ROS2 inspection |
+| Open network services | ✔ Port scanning |
+| Misconfigured firewalls | ✔ Firewall verification |
+| Unsafe USB access | ✔ USB policy checks |
+| Privilege escalation | ✔ Privilege audit |
+| Poor security monitoring | ✔ Logging verification |
 
-❌ Open network services
+---
 
-❌ Misconfigured firewalls
-
-❌ Unsafe USB access
-
-❌ Privilege escalation risks
-
-❌ Poor security monitoring
-
-RoboShield helps robotics developers, researchers, manufacturers, and security teams identify and mitigate these risks before attackers can exploit them.
+> 🛡️ **RoboShield helps developers, researchers, manufacturers, and security teams identify these weaknesses before attackers do.**
 
 ---
 
