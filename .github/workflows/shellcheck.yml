@@ -1,11 +1,11 @@
-name: ShellCheck
+name: Shell Scripts
 
 on:
   push:
   pull_request:
 
 jobs:
-  shellcheck:
+  shell:
     runs-on: ubuntu-latest
 
     steps:
@@ -14,6 +14,16 @@ jobs:
       - name: Install ShellCheck
         run: sudo apt-get update && sudo apt-get install -y shellcheck
 
+      - name: Install shfmt
+        run: |
+          curl -sSLo shfmt https://github.com/mvdan/sh/releases/latest/download/shfmt_v3.12.0_linux_amd64
+          chmod +x shfmt
+          sudo mv shfmt /usr/local/bin/
+
       - name: Run ShellCheck
         run: |
-          find . -name "*.sh" -exec shellcheck {} \;
+          find . -name "*.sh" -exec shellcheck {} +
+
+      - name: Check shell formatting
+        run: |
+          shfmt -d .
